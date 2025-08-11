@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// a new comment added to main
+
+// a  new comment added to main
 void main() {
   runApp(const BitwiseOperationsApp());
 }
@@ -92,7 +93,8 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
         final int rightShift = num1 >> 1;
         final int notResult = ~num1;
 
-        _singleNumberResults = 'Bitshift Left  (<< 1): $leftShift\n'
+        _singleNumberResults =
+            'Bitshift Left  (<< 1): $leftShift\n'
             'Bitshift Right (>> 1): $rightShift\n'
             'Bitwise NOT   (~): $notResult';
 
@@ -106,7 +108,8 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
         if (num2 != null) {
           // XOR: Always possible. Mask is num1 ^ num2
           final int xorMask = num1 ^ num2;
-          _xorResult = 'To get $num2, use mask $xorMask\n'
+          _xorResult =
+              'To get $num2, use mask $xorMask\n'
               '($num1 ^ $xorMask = $num2)';
 
           // AND: Possible only if num2's set bits are a subset of num1's.
@@ -145,10 +148,7 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
               ),
             ),
             const Divider(height: 20),
-            Text(
-              content,
-              style: const TextStyle(fontSize: 16, height: 1.4),
-            ),
+            Text(content, style: const TextStyle(fontSize: 16, height: 1.4)),
           ],
         ),
       ),
@@ -181,7 +181,7 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
                   ),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
+                    FilteringTextInputFormatter.digitsOnly,
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -195,7 +195,7 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
                   ),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
+                    FilteringTextInputFormatter.digitsOnly,
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -209,37 +209,49 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
                   ),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
+                    FilteringTextInputFormatter.digitsOnly,
                   ],
                 ),
                 const SizedBox(height: 30),
 
                 // --- RESULTS SECTION ---
                 _buildResultCard(
-                    'Single Number Operations',
-                    _singleNumberResults.isNotEmpty
-                        ? _singleNumberResults
-                        : null),
+                  'Single Number Operations',
+                  _singleNumberResults.isNotEmpty ? _singleNumberResults : null,
+                ),
 
-                _buildResultCard('Custom XOR Operation', _customXorResult,
-                    titleColor: Colors.orangeAccent),
+                _buildResultCard(
+                  'Custom XOR Operation',
+                  _customXorResult,
+                  titleColor: Colors.orangeAccent,
+                ),
 
                 if (_secondNumberController.text.isNotEmpty) ...[
                   const SizedBox(height: 10),
                   Text(
                     'Two-Number Transformations',
                     style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.greenAccent[400]),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent[400],
+                    ),
                     textAlign: TextAlign.center,
                   ),
-                  _buildResultCard('XOR Transformation', _xorResult,
-                      titleColor: Colors.greenAccent),
-                  _buildResultCard('AND Transformation', _andResult,
-                      titleColor: Colors.greenAccent),
-                  _buildResultCard('OR Transformation', _orResult,
-                      titleColor: Colors.greenAccent),
+                  _buildResultCard(
+                    'XOR Transformation',
+                    _xorResult,
+                    titleColor: Colors.greenAccent,
+                  ),
+                  _buildResultCard(
+                    'AND Transformation',
+                    _andResult,
+                    titleColor: Colors.greenAccent,
+                  ),
+                  _buildResultCard(
+                    'OR Transformation',
+                    _orResult,
+                    titleColor: Colors.greenAccent,
+                  ),
                 ],
 
                 const SizedBox(height: 30),
@@ -249,11 +261,14 @@ class _BitwiseScreenState extends State<BitwiseScreen> {
                   label: const Text('Clear All Inputs'),
                   onPressed: _clearAll,
                   style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.red[700],
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      textStyle: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold)),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red[700],
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 20),
               ],
