@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+// a new comment added to main
 void main() {
   runApp(const BitwiseOperationsApp());
 }
